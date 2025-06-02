@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== MARKEN-AUSWAHL HANDLER =====
-function handleBrandChange() {
-    const selectedBrand = this.value;
+function handleBrandChange(event) {
+    const selectedBrand = event.target.value;
     const modelSelect = document.getElementById('model');
     
     // Model-Dropdown zurücksetzen
@@ -81,7 +81,6 @@ function handleBrandChange() {
         modelSelect.disabled = true;
     }
 }
-
 // ===== BIKE-TYPE AUSWAHL =====
 function selectBikeType(element) {
     document.querySelectorAll('.bike-type[data-type]').forEach(b => b.classList.remove('selected'));
