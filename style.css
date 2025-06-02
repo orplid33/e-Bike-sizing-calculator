@@ -1,1 +1,316 @@
+/* ===== RESET & GRUNDLEGENDE STYLES ===== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
+/* ===== FARBEN ALS CSS VARIABLEN ===== */
+:root {
+    --primary-green: #2FAC66;
+    --dark-green: #294A42;
+    --accent-yellow: #FFDC63;
+    --white: #FFFFFF;
+    --light-gray: #e1e8ed;
+    --text-gray: #64748b;
+    --error-red: #ff6b6b;
+    --error-bg: #fee;
+}
+
+/* ===== BODY & CONTAINER ===== */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: var(--dark-green);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(41, 74, 66, 0.2);
+    overflow: hidden;
+}
+
+/* ===== HEADER ===== */
+.header {
+    background: linear-gradient(135deg, var(--dark-green), #1e3a20);
+    color: var(--white);
+    padding: 30px;
+    text-align: center;
+}
+
+.header .logo {
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.header h1 { 
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem; 
+    margin-bottom: 8px; 
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.header p { 
+    font-family: 'Source Sans Pro', sans-serif;
+    opacity: 0.9; 
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* ===== FORMULAR CONTAINER ===== */
+.form-container { 
+    padding: 30px; 
+}
+
+.step { 
+    margin-bottom: 25px; 
+}
+
+/* ===== STEP NUMBERS ===== */
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    color: var(--white);
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== LABELS ===== */
+label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--dark-green);
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== INPUT FELDER ===== */
+input[type="number"], 
+select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--light-gray);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+input[type="number"]:focus, 
+select:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(47, 172, 102, 0.15);
+}
+
+/* ===== BIKE TYPE GRID ===== */
+.bike-type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.bike-type {
+    padding: 12px;
+    border: 2px solid var(--light-gray);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--white);
+    font-size: 0.9rem;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
+
+.bike-type:hover {
+    border-color: var(--accent-yellow);
+    transform: translateY(-2px);
+    background: rgba(255, 220, 99, 0.1);
+}
+
+.bike-type.selected {
+    background: var(--accent-yellow);
+    color: var(--dark-green);
+    border-color: var(--accent-yellow);
+    font-weight: 700;
+}
+
+/* ===== BERECHNEN BUTTON ===== */
+.calculate-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent-yellow), #f5cc4a);
+    color: var(--dark-green);
+    border: none;
+    padding: 18px 32px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 220, 99, 0.4);
+}
+
+/* ===== ERGEBNISSE ===== */
+.results {
+    margin-top: 25px;
+    padding: 25px;
+    background: var(--white);
+    border-radius: 12px;
+    border: 2px solid var(--light-gray);
+    display: none;
+}
+
+.results.show { 
+    display: block; 
+}
+
+.results.error { 
+    background: var(--error-bg); 
+    border-color: var(--error-red); 
+    color: #c92a2a; 
+}
+
+.results.success { 
+    background: rgba(47, 172, 102, 0.05); 
+    border-color: var(--primary-green); 
+}
+
+.result-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--dark-green);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== GRÖSSEN OPTIONEN ===== */
+.size-option {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-yellow);
+    margin-bottom: 18px;
+}
+
+.size-label { 
+    font-weight: 600; 
+    color: var(--dark-green); 
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.size-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.size-description {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* ===== SPEZIELLE HINWEISE ===== */
+.special-notes {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(255, 220, 99, 0.1);
+    border-radius: 12px;
+    border: 1px solid var(--accent-yellow);
+}
+
+/* ===== DISCLAIMER ===== */
+.disclaimer {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(255, 220, 99, 0.15);
+    border-radius: 8px;
+    border: 1px solid var(--accent-yellow);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--dark-green);
+}
+
+.disclaimer h4 { 
+    color: var(--dark-green); 
+    margin-bottom: 8px; 
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== EXPERTEN SIEGEL ===== */
+.expert-seal {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.expert-seal img {
+    width: 120px;
+    height: 120px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 640px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container { 
+        margin: 10px; 
+        border-radius: 15px; 
+    }
+    
+    .header { 
+        padding: 20px; 
+    }
+    
+    .header h1 { 
+        font-size: 1.5rem; 
+    }
+    
+    .form-container { 
+        padding: 20px; 
+    }
+    
+    .bike-type-grid { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    
+    .calculate-btn {
+        font-size: 1.1rem;
+        padding: 16px 24px;
+    }
+}
