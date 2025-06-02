@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Bike Rahmengrößen-Rechner | e-motion Experten</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header mit Logo-Platzhalter -->
+        <div class="header">
+            <!-- Hier kann später das Logo eingefügt werden:
+            <img src="images/emotion-logo.png" alt="e-motion Logo" class="logo">
+            -->
+            <h1>🚴‍♀️ e-Bike-Rahmengrößen-Empfehlung</h1>
+            <p>Finde die perfekte Rahmengröße für dein neues e-Bike</p>
+        </div>
+        
+        <div class="form-container">
+            <!-- Schritt 1: Körpergröße -->
+            <div class="step">
+                <label><span class="step-number">1</span> Körpergröße (cm)</label>
+                <input type="number" id="height" placeholder="z.B. 175" min="120" max="220">
+            </div>
+            
+            <!-- Schritt 2: Innenbeinlänge -->
+            <div class="step">
+                <label><span class="step-number">2</span> Innenbeinlänge (cm) - optional</label>
+                <input type="number" id="inseam" placeholder="z.B. 82" min="60" max="120">
+            </div>
+            
+            <!-- Schritt 3: e-Bike-Typ -->
+            <div class="step">
+                <label><span class="step-number">3</span> e-Bike-Typ</label>
+                <div class="bike-type-grid">
+                    <div class="bike-type" data-type="city">City/Komfort</div>
+                    <div class="bike-type" data-type="trekking">Trekking</div>
+                    <div class="bike-type" data-type="suv">SUV</div>
+                    <div class="bike-type" data-type="mtb">Mountainbike</div>
+                    <div class="bike-type" data-type="gravel">Gravel</div>
+                </div>
+            </div>
+            
+            <!-- Schritt 4: Marke -->
+            <div class="step">
+                <label><span class="step-number">4</span> e-Bike-Marke</label>
+                <select id="brand">
+                    <option value="">-- Marke auswählen --</option>
+                    <option value="riese_muller">Riese & Müller</option>
+                    <option value="specialized">Specialized</option>
+                    <option value="focus">Focus</option>
+                    <option value="corratec">Corratec</option>
+                    <option value="cannondale">Cannondale</option>
+                    <option value="velo_de_ville">Velo de Ville</option>
+                    <option value="general">Allgemeine Empfehlung</option>
+                </select>
+            </div>
+            
+            <!-- Schritt 5: Modell -->
+            <div class="step">
+                <label><span class="step-number">5</span> e-Bike-Modell</label>
+                <select id="model" disabled>
+                    <option value="">-- Erst Marke auswählen --</option>
+                </select>
+            </div>
+            
+            <!-- Schritt 6: Fahrstil -->
+            <div class="step">
+                <label><span class="step-number">6</span> Fahrstil</label>
+                <div class="bike-type-grid">
+                    <div class="bike-type" data-style="comfort">Komfort</div>
+                    <div class="bike-type" data-style="balanced">Ausgewogen</div>
+                    <div class="bike-type" data-style="sporty">Sportlich</div>
+                    <div class="bike-type" data-style="aggressive">Aggressiv</div>
+                </div>
+            </div>
+            
+            <!-- Berechnen Button -->
+            <button class="calculate-btn" onclick="calculateFrameSize()">
+                🔍 Rahmengröße berechnen
+            </button>
+            
+            <!-- Ergebnisse -->
+            <div id="results" class="results"></div>
+            
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <h4>⚠️ Wichtiger Hinweis</h4>
+                <p>Diese Empfehlungen sind Richtwerte. Eine Probefahrt beim Fachhändler wird immer empfohlen!</p>
+            </div>
+            
+            <!-- Platzhalter für Experten-Siegel 
+            <div class="expert-seal">
+                <img src="images/expert-seal.png" alt="e-Bikes vom Experten">
+            </div>
+            -->
+        </div>
+    </div>
 
+    <script src="script.js"></script>
+</body>
+</html>
